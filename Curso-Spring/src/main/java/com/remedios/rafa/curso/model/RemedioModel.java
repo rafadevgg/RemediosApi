@@ -26,6 +26,7 @@ public class RemedioModel {
         this.quantidade=dados.quantidade();
         this.validade=dados.validade();
         this.laboratorio=dados.laboratorio();
+        this.ativo = true;
     }
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +46,8 @@ public class RemedioModel {
     @Enumerated(EnumType.STRING)
     private Laboratorio laboratorio;
 
+    private Boolean ativo;
+
     public void atualizarInformacoes(@Valid DadosAtualizarDto dados) {
 
         if(dados.nome() != null) {
@@ -56,5 +59,13 @@ public class RemedioModel {
         if(dados.laboratorio() != null) {
             this.laboratorio = dados.laboratorio();
         }
+    }
+
+    public void inativar() {
+        this.ativo = false;
+    }
+
+    public void reativar() {
+        this.ativo = true;
     }
 }
