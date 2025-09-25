@@ -10,8 +10,7 @@ public record DadosDetalhamentoDto(Long id,
                                    String lote,
                                    int quantidade,
                                    LocalDate validade,
-                                   Laboratorio laboratorio,
-                                   Boolean ativo) {
+                                   Laboratorio laboratorio) {
 
     public DadosDetalhamentoDto(RemedioModel remedio) {
         this(
@@ -21,8 +20,7 @@ public record DadosDetalhamentoDto(Long id,
                 remedio.getLote(),
                 remedio.getQuantidade(),
                 remedio.getValidade(),
-                remedio.getLaboratorio(),
-                remedio.getAtivo()
+                remedio.getLaboratorio()
         );
     }
 }
